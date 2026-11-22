@@ -149,7 +149,9 @@ const REASON = [
 ];
 
 function makeGen(sec){
-  if(sec==="math") return Math.random()<0.28? R.pick(REASON)() : R.pick(ARITH)();
+  if(sec==="math"){ const r=Math.random(); const mb=(typeof BANK!=="undefined"&&BANK.math)||[];
+    if(mb.length&&r<0.12){ const i=Math.floor(Math.random()*mb.length); return {sec:"math",sub:"",q:mb[i][0],opts:mb[i][1],exp:mb[i][2],src:"bank",id:"math:"+i}; }
+    return r<0.30? R.pick(REASON)() : R.pick(ARITH)(); }
   return R.pick(MEMGEN[sec])();
 }
 function genReason(){ return R.pick(REASON)(); }

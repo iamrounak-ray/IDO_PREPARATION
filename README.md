@@ -19,6 +19,7 @@ It is a static website (HTML, CSS and JavaScript only), so it runs on **GitHub P
 | `css/styles.css` | Styles (works on laptops, Android and iPhone) |
 | `js/config.js` | **Your Firebase settings go here** (step 2) |
 | `js/bank.js`, `js/gen.js`, `js/pyq.js` | Question bank, question generators, previous year papers |
+| `js/bank-extra.js` | Extra questions added over time (new ones go at the end of each section) |
 | `js/app.js`, `js/profile.js` | The app: quiz, tests, results, profile charts, sign-in screens |
 | `js/cloud.js` | Firebase sign-in and sync |
 | `firestore.rules` | Database security rules (step 4) |

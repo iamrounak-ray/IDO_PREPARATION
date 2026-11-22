@@ -208,6 +208,8 @@ function renderQuiz(){
 let EX=null; let PAL_OPEN=!(window.matchMedia&&matchMedia("(max-width: 860px)").matches);
 function sectionItems(sec,n){
   if(sec==="math"){ const nr=Math.max(1,Math.round(n/4)); const rs=[],as=[]; let rp=R.shuffle(REASON),ap=R.shuffle(ARITH);
+    const mb=BANK.math||[]; if(mb.length){ const use=store.get("bankUse",{}); const k=Math.min(mb.length,Math.ceil(nr/2));
+      mb.map((_,i)=>({i,u:use["math:"+i]||0,r:Math.random()})).sort((a,b)=>a.u-b.u||a.r-b.r).slice(0,k).forEach(x=>{ use["math:"+x.i]=(use["math:"+x.i]||0)+1; rs.push(bankRaw("math",x.i)); }); store.set("bankUse",use); }
     while(rs.length<nr){ if(!rp.length) rp=R.shuffle(REASON); rs.push(rp.pop()()); } while(as.length<n-nr){ if(!ap.length) ap=R.shuffle(ARITH); as.push(ap.pop()()); }
     return [...rs,...as].map(prep); }
   const use=store.get("bankUse",{}); const nb=Math.min(BANK[sec].length,Math.round(n*0.7));
