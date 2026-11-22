@@ -19,4 +19,11 @@
 // These values are not secret: Firebase web configs are meant to be public.
 // Your data is protected by the rules in firestore.rules.
 // ─────────────────────────────────────────────────────────────────────────────
-window.FIREBASE_CONFIG = null;
+window.FIREBASE_CONFIG = {
+  apiKey: "AIzaSyAVP7NKISyTNlwUiTXwsdNEOwVxhcC898w",
+  authDomain: "ido-practice.firebaseapp.com",
+  projectId: "ido-practice",
+  storageBucket: "ido-practice.firebasestorage.app",
+  messagingSenderId: "166038746825",
+  appId: "1:166038746825:web:adb24841639c0e9d7c3f18"
+};

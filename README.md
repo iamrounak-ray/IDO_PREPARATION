@@ -46,20 +46,20 @@ At this point the site already works, but without sync: progress is saved only i
 
 ### Step 3 – Turn on email-link sign-in
 
-1. In Firebase: **Build → Authentication → Get started**.
+1. In Firebase, in the left panel: **Security → Authentication → Get started**.
 2. **Sign-in method → Email/Password → Enable**, and also switch on **Email link (passwordless sign-in)**. Save.
 3. **Settings → Authorized domains → Add domain**: add `YOUR-GITHUB-NAME.github.io`.
 
 ### Step 4 – Create the database and paste the security rules
 
-1. **Build → Firestore Database → Create database**. Choose a location near you (e.g. `asia-south1` Mumbai) and **production mode**.
+1. In the left panel: **Databases & Storage → Firestore → Create database**. Choose **Standard edition**, keep the database ID as `(default)`, pick a location near you (e.g. `asia-south1` Mumbai) and **Production mode**.
 2. Open the **Rules** tab, delete what is there, paste the whole of `firestore.rules`, and click **Publish**.
 
 ### Step 5 – Add the passcodes
 
 Passcodes are stored only as one-way codes ("document IDs"), so they can't be read from the website.
 
-1. In **Firestore Database → Data**, click **Start collection**, name it `codes`.
+1. In **Databases & Storage → Firestore → Data**, click **Start collection**, name it `codes`.
 2. For the first document, set **Document ID** to the ID below, add a field `note` (string) such as `first passcode`, and save. Add the second one the same way.
 
 | Passcode | Document ID to create in `codes` |
