@@ -251,3 +251,6 @@ details.palette[open] summary::after{content:"Hide ▴";margin-left:auto;color:v
   .modal .card{padding:18px}
   th,td{padding:8px 8px}
 }
+
+.pwrow{display:flex;gap:8px;align-items:center}
+.pwrow .txt{flex:1;min-width:0}

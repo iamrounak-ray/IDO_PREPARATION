@@ -5,9 +5,9 @@ A practice website for the **WBPSC Industrial Development Officer (IDO)** exam, 
 - **Daily quiz**: unlimited questions in all 7 subjects, instant right/wrong with an explanation, missed questions come back later.
 - **Tests**: 100-question timed mock in the exam format (−0.25 per wrong answer), sectional tests, and the real **2019** and **2007** IDO papers, each with a question-by-question evaluation.
 - **Profile**: progress charts per subject with any date range.
-- **Sign-in**: profiles are tied to an email address. A new user needs a one-time passcode from you; a returning user only needs their email. Progress syncs across phones and computers.
+- **Sign-in**: profiles are tied to an email address and a password. A new user needs a one-time passcode from you; a returning user signs in with email and password. Progress syncs across phones and computers.
 
-It is a static website (HTML, CSS and JavaScript only), so it runs on **GitHub Pages** for free. Email sign-in and syncing use **Google Firebase** (free plan).
+It is a static website (HTML, CSS and JavaScript only), so it runs on **GitHub Pages** for free. Sign-in and syncing use **Google Firebase** (free plan).
 
 ---
 
@@ -44,10 +44,10 @@ At this point the site already works, but without sync: progress is saved only i
 3. Firebase shows a `firebaseConfig = { ... }` block. Open `js/config.js`, and replace `null` with that block, so it reads `window.FIREBASE_CONFIG = { apiKey: "...", ... };`
 4. Upload the changed `js/config.js` to GitHub (open the file on GitHub → pencil icon → paste → **Commit**).
 
-### Step 3 – Turn on email-link sign-in
+### Step 3 – Turn on email/password sign-in
 
 1. In Firebase, in the left panel: **Security → Authentication → Get started**.
-2. **Sign-in method → Email/Password → Enable**, and also switch on **Email link (passwordless sign-in)**. Save.
+2. **Sign-in method → Email/Password → Enable** and Save. (The *Email link* option is not needed.)
 3. **Settings → Authorized domains → Add domain**: add `YOUR-GITHUB-NAME.github.io`.
 
 ### Step 4 – Create the database and paste the security rules
@@ -71,26 +71,28 @@ Passcodes are stored only as one-way codes ("document IDs"), so they can't be re
 
 ### Step 6 – Try it
 
-Open your site, choose **New user**, enter a name, your email and passcode `301125`, then open the sign-in link that arrives by email **on the same device and browser**. You're in. On another phone or laptop, choose **Returning user**, enter the same email, and open the new link: the same progress appears.
+Open your site, choose **New user**, enter a name, your email, a 6-digit password and passcode `301125`. You're in. On another phone or laptop, choose **Returning user** and sign in with the same email and password: the same progress appears.
 
 ---
 
 ## How sign-in works
 
-- **New user**: name + email + passcode → a sign-in link is emailed → opening it confirms the email, uses up the passcode and creates the profile.
-- **Returning user**: email only → a sign-in link is emailed → opening it signs in. No passcode.
-- Each device stays signed in until the person taps **Sign out**, so a link is needed only once per phone or browser.
-- Only the owner of a profile can read or change it, and only someone who controls an email inbox can sign in with that email.
+- **New user**: name + email + a 6-digit password they choose + your passcode → the profile is created and the passcode is used up.
+- **Returning user**: email + 6-digit password. No passcode, and no email is sent.
+- **Forgot password**: on the Returning user screen, type the email and tap *Forgot password?*; Firebase emails a reset link.
+- Each device stays signed in until the person taps **Sign out**.
+- Only the owner of a profile can read or change it.
 
 ## Limits on the free Firebase plan
 
-- **Sign-in emails: 5 per day** for the whole site. That is usually enough for a small group, because each person needs a link only once per device. If you need more, add a billing card in Firebase (the *Blaze* plan); the limit rises to 25,000 per day and light use like this normally costs nothing.
+- Password sign-in sends no emails, so there is no daily sign-in limit.
+- Password-reset emails: 150 per day.
 - Database: 50,000 reads and 20,000 writes per day, far more than a few users need.
 - Check the current limits at <https://firebase.google.com/docs/auth/limits> and <https://firebase.google.com/pricing>.
 
 ## Good to know
 
-- If emails don't arrive, check Spam/Promotions. You can change the sender name and text under **Authentication → Templates**.
+- If a password-reset email doesn't arrive, check Spam/Promotions. You can change its sender name and text under **Security → Authentication → Templates**.
 - "Fresh questions written by Claude" only works when the page is opened inside Claude; on GitHub the quiz uses the built-in question bank and the unlimited generators.
 - Progress is synced a second or two after each answer, and immediately when the page is closed or hidden.
 - If you leave `js/config.js` as `null`, the site still works with on-device profiles (passcodes 301125 and 162330 each work once per device).

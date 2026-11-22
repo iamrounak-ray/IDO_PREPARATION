@@ -38,6 +38,15 @@ async function boot() {
       try { history.replaceState(null, "", returnUrl()); } catch (e) {}
       CLOUD.user = cred.user; return cred.user;
     },
+    async register(email, password) {
+      const cred = await A.createUserWithEmailAndPassword(auth, email, password);
+      CLOUD.user = cred.user; return cred.user;
+    },
+    async login(email, password) {
+      const cred = await A.signInWithEmailAndPassword(auth, email, password);
+      CLOUD.user = cred.user; return cred.user;
+    },
+    async resetPassword(email) { await A.sendPasswordResetEmail(auth, email); },
     async getProfile() {
       if (!CLOUD.user) return null;
       const s = await F.getDoc(F.doc(db, "users", CLOUD.user.uid));

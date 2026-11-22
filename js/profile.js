@@ -249,7 +249,14 @@ function cloudErrMsg(e){ const c=(e&&e.code)||""; const m={
  "auth/unauthorized-domain":"This website’s address isn’t authorised in Firebase yet (see README, step 3).",
  "auth/operation-not-allowed":"Email-link sign-in isn’t switched on in Firebase yet (see README, step 3).",
  "auth/network-request-failed":"No internet connection. Check your connection and try again.",
- "auth/invalid-credential":"This sign-in link doesn’t match the email entered. Request a new link."}; return m[c]||("Something went wrong: "+((e&&e.message)||e)); }
+ "auth/invalid-credential":"Email or password is incorrect.",
+ "auth/wrong-password":"Email or password is incorrect.",
+ "auth/user-not-found":"No account with this email. Choose New user to register.",
+ "auth/invalid-login-credentials":"Email or password is incorrect.",
+ "auth/email-already-in-use":"An account with this email already exists. Go back and choose Returning user.",
+ "auth/weak-password":"Your password must be exactly 6 digits (numbers only).",
+ "auth/missing-password":"Enter your 6-digit password.",
+ "auth/user-disabled":"This account has been disabled."}; return m[c]||("Something went wrong: "+((e&&e.message)||e)); }
 function reasonMsg(r){ return r.reason==="used"?"That passcode has already been used. Ask for a new one.":r.reason==="invalid"?"That passcode is not valid. Check it with the person who shared this page.":"Could not reach the database. Check your connection and try again."; }
 async function cloudStart(){
   const C=window.CLOUD;
@@ -315,20 +322,22 @@ function renderCloudGate(){
       <label for="fCode">Passcode</label><input id="fCode" class="txt" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" maxlength="12" placeholder="6-digit passcode" required>
       ${err}<div class="row"><button class="btn primary big" type="submit" ${GATE.busy?"disabled":""}>${GATE.busy?"Checking…":"Create my profile"}</button><button type="button" class="btn ghost" id="gSignOut">Sign out</button></div></form>`;
   else if(GATE.mode==="ret") body=`${back}<form id="retForm" class="gform" novalidate><h2>Returning user</h2>
-      <label for="rEmail">Email address</label><input id="rEmail" class="txt" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false" placeholder="name@example.com" value="${esc(f.rEmail||"")}" required>
-      <p class="m" style="margin:0">We’ll email you a sign-in link. No passcode needed. Once signed in, this device remembers you.</p>
-      ${err}<button class="btn primary big" type="submit" ${GATE.busy?"disabled":""}>${GATE.busy?"Sending…":"Email me a sign-in link"}</button></form>`;
+      <label for="rEmail">Email address</label><input id="rEmail" class="txt" type="email" inputmode="email" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="name@example.com" value="${esc(f.rEmail||"")}" required>
+      <label for="rPass">6-digit password</label><div class="pwrow"><input id="rPass" class="txt" type="password" inputmode="numeric" autocomplete="current-password" value="${esc(f.rPass||"")}" required><button type="button" class="btn ghost sm" data-show="rPass">Show</button></div>
+      ${err}<button class="btn primary big" type="submit" ${GATE.busy?"disabled":""}>${GATE.busy?"Signing in…":"Sign in"}</button>
+      <button type="button" class="linkbtn" id="gForgot" style="align-self:flex-start">Forgot password?</button></form>`;
   else if(GATE.mode==="new") body=`${back}<form id="newForm" class="gform" novalidate><h2>New user</h2>
       <label for="nName">Profile name</label><input id="nName" class="txt" type="text" autocomplete="name" maxlength="30" placeholder="e.g. Rina" value="${esc(f.nName||"")}" required>
-      <label for="nEmail">Email address</label><input id="nEmail" class="txt" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false" placeholder="name@example.com" value="${esc(f.nEmail||"")}" required>
-      <label for="nCode">Passcode</label><input id="nCode" class="txt" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" maxlength="12" placeholder="6-digit passcode" value="${esc(f.nCode||"")}" required>
-      <p class="m" style="margin:0">We’ll email you a sign-in link to confirm your address. You need the passcode only once; after that, sign in as a returning user with just your email, on any device.</p>
-      ${err}<button class="btn primary big" type="submit" ${GATE.busy?"disabled":""}>${GATE.busy?"Sending…":"Email me a sign-in link"}</button></form>`;
+      <label for="nEmail">Email address</label><input id="nEmail" class="txt" type="email" inputmode="email" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="name@example.com" value="${esc(f.nEmail||"")}" required>
+      <label for="nPass">Choose a 6-digit password</label><div class="pwrow"><input id="nPass" class="txt" type="password" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="new-password" placeholder="6 digits, e.g. 482915" value="${esc(f.nPass||"")}" required><button type="button" class="btn ghost sm" data-show="nPass">Show</button></div>
+      <label for="nCode">Invitation passcode (given to you)</label><input id="nCode" class="txt" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" maxlength="12" placeholder="Passcode you received" value="${esc(f.nCode||"")}" required>
+      <p class="m" style="margin:0">The invitation passcode is used only once. After this, sign in as a returning user with your email and your own 6-digit password, on any device.</p>
+      ${err}<button class="btn primary big" type="submit" ${GATE.busy?"disabled":""}>${GATE.busy?"Creating your profile…":"Create my profile"}</button></form>`;
   else body=`<div class="choice">
       <button class="choicebtn" data-mode="new"><span class="ct">New user</span><span class="m">First time here? Create your profile with your name, email and the passcode you were given.</span></button>
-      <button class="choicebtn" data-mode="ret"><span class="ct">Returning user</span><span class="m">Already registered? Just enter your email. Works on any phone or computer.</span></button></div>`;
+      <button class="choicebtn" data-mode="ret"><span class="ct">Returning user</span><span class="m">Already registered? Sign in with your email and password. Works on any phone or computer.</span></button></div>`;
   $("#app").innerHTML=`<div class="gate card"><div><h1>IDO Practice Room</h1><p class="lead">Practice for the WBPSC Industrial Development Officer exam: daily quizzes, timed mock tests, previous year papers and progress charts.</p></div>${body}
-    <p class="m small" style="margin:0">Your progress is saved to your email and syncs across devices.</p></div>`;
+    <p class="m small" style="margin:0">Your progress is saved to your account and syncs across devices.</p></div>`;
   const fail=msg=>{ GATE.msg=msg; const el=$("#gErr"); if(el) el.textContent=msg; };
   document.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>{ GATE.mode=b.dataset.mode; GATE.msg=""; render(); const i=$("#app input"); if(i) i.focus(); });
   const on=(id,fn)=>{ const el=$(id); if(el) el.onclick=fn; };
@@ -338,10 +347,20 @@ function renderCloudGate(){
   on("#gRetry",()=>{ GATE.msg=""; if(GATE.cmode==="neterr") afterAuth(); else { GATE.cmode=null; render(); } });
   on("#gSignOut",()=>cloudSignOut());
   const sendFlow=async(email,info)=>{ GATE.busy=true; GATE.msg=""; render(); try{ await C.sendLink(email,info); GATE.busy=false; GATE.cmode="sent"; GATE.mode=null; GATE.form={}; render(); }catch(e){ GATE.busy=false; render(); fail(cloudErrMsg(e)); } };
-  const rf=$("#retForm"); if(rf) rf.onsubmit=e=>{ e.preventDefault(); const em=normEmail($("#rEmail").value); f.rEmail=em; if(!validEmail(em)) return fail("Enter a valid email address, like name@example.com."); sendFlow(em,{mode:"ret"}); };
-  const nf=$("#newForm"); if(nf) nf.onsubmit=e=>{ e.preventDefault(); const name=$("#nName").value.trim().replace(/\s+/g," "), em=normEmail($("#nEmail").value), code=$("#nCode").value.trim(); Object.assign(f,{nName:name,nEmail:em,nCode:code});
-    if(!name) return fail("Enter a profile name."); if(!validEmail(em)) return fail("Enter a valid email address, like name@example.com."); if(!/^\d{4,12}$/.test(code)) return fail("Enter the passcode you were given (digits only).");
-    sendFlow(em,{mode:"new",name,code}); };
+  document.querySelectorAll("[data-show]").forEach(b=>b.onclick=()=>{ const i=$("#"+b.dataset.show); const s=i.type==="password"; i.type=s?"text":"password"; b.textContent=s?"Hide":"Show"; });
+  const rf=$("#retForm"); if(rf) rf.onsubmit=async e=>{ e.preventDefault(); if(GATE.busy) return; const em=normEmail($("#rEmail").value), pw=$("#rPass").value; f.rEmail=em; f.rPass=pw;
+    if(!validEmail(em)) return fail("Enter a valid email address, like name@example.com."); if(!pw) return fail("Enter your password.");
+    GATE.busy=true; GATE.msg=""; render(); try{ await C.login(em,pw); GATE.busy=false; GATE.form={}; await afterAuth(); }catch(x){ GATE.busy=false; render(); fail(cloudErrMsg(x)); } };
+  on("#gForgot",async()=>{ const em=normEmail(($("#rEmail")||{}).value); if(!validEmail(em)) return fail("Type your email address above first, then tap Forgot password."); f.rEmail=em;
+    try{ await C.resetPassword(em); fail("If an account exists for "+em+", a password-reset email is on its way. Open it, choose a new password, then sign in here. Check Spam if you don’t see it."); }catch(x){ fail(cloudErrMsg(x)); } });
+  const nf=$("#newForm"); if(nf) nf.onsubmit=async e=>{ e.preventDefault(); if(GATE.busy) return; const name=$("#nName").value.trim().replace(/\s+/g," "), em=normEmail($("#nEmail").value), pw=$("#nPass").value, code=$("#nCode").value.trim(); Object.assign(f,{nName:name,nEmail:em,nCode:code,nPass:pw});
+    if(!name) return fail("Enter a profile name."); if(!validEmail(em)) return fail("Enter a valid email address, like name@example.com."); if(!/^\d{6}$/.test(pw)) return fail("Your password must be exactly 6 digits (numbers only)."); if(!/^\d{4,12}$/.test(code)) return fail("Enter the passcode you were given (digits only).");
+    GATE.busy=true; GATE.msg=""; render();
+    try{ await C.register(em,pw); }catch(x){ GATE.busy=false; render(); return fail(cloudErrMsg(x)); }
+    const r=await C.createProfile(name,code); GATE.busy=false;
+    if(!r.ok){ GATE.cmode="finish"; GATE.form={nName:name}; GATE.msg=reasonMsg(r)+" Your account was created; enter a valid passcode to finish."; render(); return; }
+    let prof=null; try{ prof=await C.getProfile(); }catch(x){} if(!prof){ render(); return fail("Profile saved, but could not be read back. Reload the page."); }
+    GATE.form={}; await openCloudProfile(prof); };
   const cf=$("#cfForm"); if(cf) cf.onsubmit=async e=>{ e.preventDefault(); const em=normEmail($("#cfEmail").value); if(!validEmail(em)) return fail("Enter a valid email address."); GATE.cmode="loading"; render(); try{ await C.completeLink(em); await afterAuth(); }catch(x){ GATE.cmode="linkerr"; GATE.msg=cloudErrMsg(x); render(); } };
   const ff=$("#fnForm"); if(ff) ff.onsubmit=async e=>{ e.preventDefault(); if(GATE.busy) return; const name=$("#fName").value.trim().replace(/\s+/g," "), code=$("#fCode").value.trim(); f.nName=name;
     if(!name) return fail("Enter a profile name."); if(!/^\d{4,12}$/.test(code)) return fail("Enter the passcode you were given (digits only).");
