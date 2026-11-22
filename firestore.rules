@@ -1,0 +1,62 @@
+rules_version = '2';
+
+// Security rules for IDO Practice Room (README, step 4).
+// - /codes/{hash}        passcodes you create in the console; nobody can read them from the website.
+// - /redemptions/{hash}  one document per used passcode, so each passcode works only once.
+// - /users/{uid}         one profile per verified email; only its owner can read or change it.
+// - /users/{uid}/store   that person's progress (quiz history, tests, charts).
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null && request.auth.token.email != null;
+    }
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    match /codes/{codeHash} {
+      allow read, write: if false;
+    }
+
+    match /redemptions/{codeHash} {
+      // Lets the website tell "already used" apart from "not valid". Holds no email, only an opaque user id.
+      allow get: if signedIn();
+      allow list: if false;
+      // A passcode can be redeemed only if it exists in /codes and has not been redeemed before
+      // (a second redemption would be an update, which is not allowed).
+      allow create: if signedIn()
+        && exists(/databases/$(database)/documents/codes/$(codeHash))
+        && request.resource.data.keys().hasOnly(['uid', 'at'])
+        && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if false;
+    }
+
+    match /users/{uid} {
+      allow get: if isOwner(uid);
+      allow list: if false;
+      // A profile can be created only together with a passcode redemption made by the same person.
+      allow create: if isOwner(uid)
+        && request.resource.data.keys().hasOnly(['name', 'email', 'codeHash', 'created'])
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 40
+        && getAfter(/databases/$(database)/documents/redemptions/$(request.resource.data.codeHash)).data.uid == request.auth.uid;
+      allow update: if isOwner(uid)
+        && request.resource.data.keys().hasOnly(['name', 'email', 'codeHash', 'created'])
+        && request.resource.data.email == resource.data.email
+        && request.resource.data.codeHash == resource.data.codeHash;
+      allow delete: if isOwner(uid);
+
+      match /store/{key} {
+        allow read, delete: if isOwner(uid);
+        allow create, update: if isOwner(uid)
+          && exists(/databases/$(database)/documents/users/$(uid))
+          && request.resource.data.keys().hasOnly(['v', 'at'])
+          && request.resource.data.v is string
+          && request.resource.data.v.size() < 900000;
+      }
+    }
+  }
+}

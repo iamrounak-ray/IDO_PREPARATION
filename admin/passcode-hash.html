@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Make a new passcode</title>
+<style>
+  :root{--ink:#18212d;--muted:#5a6575;--line:#d9dfe7;--accent:#1d5fa8;--paper:#f4f6f9;--surface:#fff}
+  body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+  main{max-width:640px;margin:32px auto;padding:0 16px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:12px}
+  input{font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:8px}
+  button{font:inherit;font-weight:600;padding:10px 16px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;align-self:flex-start}
+  code{display:block;word-break:break-all;background:#eef1f5;padding:10px;border-radius:8px;font-size:.9rem}
+  ol{padding-left:20px;margin:0} .m{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <h1 style="margin:0;font-size:1.4rem">Make a new passcode</h1>
+    <p class="m" style="margin:0">Type the passcode you want to give someone. This page works it out in your browser only; nothing is sent anywhere.</p>
+    <label for="code"><b>Passcode</b></label>
+    <input id="code" inputmode="numeric" autocomplete="off" placeholder="e.g. 482915">
+    <button id="go">Make the document ID</button>
+    <div id="out" hidden>
+      <p style="margin:0 0 6px"><b>Document ID</b> (copy all of it):</p>
+      <code id="hash"></code>
+      <button id="copy" style="margin-top:8px">Copy</button>
+      <ol style="margin-top:12px">
+        <li>Open your project in the Firebase console → <b>Firestore Database</b>.</li>
+        <li>Click the <b>codes</b> collection → <b>Add document</b>.</li>
+        <li>Paste the ID above into <b>Document ID</b>.</li>
+        <li>Add one field, for example <b>note</b> (string) = who the passcode is for. Click <b>Save</b>.</li>
+      </ol>
+      <p class="m">The passcode then works once. After someone uses it, it can never be used again.</p>
+    </div>
+  </div>
+</main>
+<script>
+  async function h(code){
+    const buf=await crypto.subtle.digest("SHA-256",new TextEncoder().encode("ido-practice-room:"+code));
+    return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,"0")).join("");
+  }
+  document.getElementById("go").onclick=async()=>{
+    const c=document.getElementById("code").value.trim();
+    if(!/^\d{4,12}$/.test(c)){ alert("Use 4 to 12 digits."); return; }
+    document.getElementById("hash").textContent=await h(c);
+    document.getElementById("out").hidden=false;
+  };
+  document.getElementById("copy").onclick=()=>navigator.clipboard.writeText(document.getElementById("hash").textContent);
+</script>
+</body>
+</html>
