@@ -50,7 +50,16 @@ ADD.eng = [
 ["Choose the correct sentence.", ["The scenery here is beautiful.","The sceneries here are beautiful.","The scenery here are beautiful.","The sceneries here is beautiful."], "‘Scenery’ is uncountable: no plural form and a singular verb."],
 ["Fill in the blank: He gave me ____ advice.", ["some","an","many","a"], "‘Advice’ is uncountable, so not ‘an advice’ or ‘many advices’."],
 ["Fill in the blank: I have very ____ money left, so I cannot buy it.", ["little","few","many","much"], "‘Little’ is used with uncountable nouns (money); ‘few’ with countable nouns. ‘Very little’ means almost none."],
-["Fill in the blank: There are ____ mistakes in your essay; well done!", ["few","little","much","less"], "‘Few’ is used with countable nouns such as mistakes, and here means hardly any."]
+["Fill in the blank: There are ____ mistakes in your essay; well done!", ["few","little","much","less"], "‘Few’ is used with countable nouns such as mistakes, and here means hardly any."],
+["Fill in the blank: The manager, along with his assistants, ____ visiting the factory today.",["is","are","were","have been"],"Words added with ‘along with’, ‘as well as’ or ‘together with’ do not change the subject, so the verb agrees with ‘the manager’ (singular)."],
+["Fill in the blank: Neither of the two proposals ____ acceptable to the board.",["is","are","were","have been"],"‘Neither of’ means ‘not one of the two’ and takes a singular verb."],
+["Fill in the blank: The inspector warned the owner ____ the risk of fire.",["of","from","for","at"],"We ‘warn someone of (or about)’ a danger."],
+["Choose the passive form: ‘The workers have completed the task.’",["The task has been completed by the workers.","The task was completed by the workers.","The task had been completed by the workers.","The task is completed by the workers."],"Present perfect active (have completed) becomes ‘has/have been + past participle’ in the passive."],
+["Choose the indirect speech: He said, “I will come tomorrow.”",["He said that he would come the next day.","He said that he will come tomorrow.","He said that he would come tomorrow.","He told that he would come the next day."],"With a past reporting verb, ‘will’ becomes ‘would’ and ‘tomorrow’ becomes ‘the next day’. ‘Told’ needs an object."],
+["Choose the meaning of the word ‘ameliorate’.",["Improve","Worsen","Delay","Measure"],"To ameliorate a situation is to make it better, e.g. ‘steps to ameliorate working conditions’."],
+["Choose the meaning of the word ‘expedite’.",["Speed up","Postpone","Explain","Expand"],"To expedite a process is to make it happen faster, e.g. ‘expedite the clearance of applications’."],
+["Choose the correctly spelt word.",["Occasion","Ocassion","Occassion","Ocasion"],"Occasion has a double ‘c’ and a single ‘s’."],
+["The phrasal verb ‘set up’ (a factory) means",["Establish","Close down","Repair","Inspect"],"‘He set up a small unit in Howrah’ = established or started it. ‘Shut down’ means close."]
 ];
 
 ADD.safe = [
@@ -103,19 +112,26 @@ ADD.safe = [
 ["Ergonomics is the study of", ["Fitting the job and workplace to the worker","Factory accounts","Economics of industry","Fire chemistry"], "Good ergonomics (chair height, lifting methods, screen position) prevents strain injuries."],
 ["Under Section 40B of the Factories Act, 1948, a Safety Officer had to be appointed in factories employing", ["1,000 or more workers","100 or more workers","250 or more workers","50 or more workers"], "Also for smaller factories with hazardous processes if notified by the state government."],
 ["Under the Factories Act, 1948, a canteen was required in factories employing more than", ["250 workers","100 workers","500 workers","50 workers"], "Other thresholds: crèche — more than 30 women workers; ambulance room — more than 500 workers; welfare officer — 500 or more workers."],
-["Under the Factories Act, 1948, a crèche was required in factories employing", ["More than 30 women workers","More than 10 women workers","More than 50 women workers","More than 100 women workers"], "The crèche is for children under six years of women workers."]
+["Under the Factories Act, 1948, a crèche was required in factories employing", ["More than 30 women workers","More than 10 women workers","More than 50 women workers","More than 100 women workers"], "The crèche is for children under six years of women workers."],
+["Under India’s Noise Pollution Rules, 2000, the night-time noise limit for industrial areas is",["70 dB(A)","75 dB(A)","55 dB(A)","45 dB(A)"],"Night limits: industrial 70, commercial 55, residential 45 and silence zone 40 dB(A). Night time is 10 pm to 6 am."],
+["Halon fire extinguishers have been phased out mainly because halons",["Deplete the ozone layer","Are too heavy to carry","Conduct electricity","Do not work on any fire"],"Halons are ozone-depleting substances controlled under the Montreal Protocol, so ozone-safe ‘clean agents’ are now used instead."],
+["Which toxic gas, smelling of rotten eggs, is a major danger in sewers, manholes and effluent pits?",["Hydrogen sulphide","Carbon dioxide","Nitrogen","Argon"],"H₂S is highly toxic; at high levels it deadens the sense of smell, so gas testing before entry is essential."],
+["Carbon monoxide is dangerous mainly because it",["Combines with haemoglobin and reduces the blood’s ability to carry oxygen","Burns the skin on contact","Causes acid rain","Smells strongly and irritates the eyes"],"CO is colourless and odourless, so it gives no warning; poor ventilation of generators and furnaces is a common cause of poisoning."],
+["Machine guarding in a factory is mainly meant to protect workers from",["Contact with moving parts such as gears, belts and blades","Noise","Dust","Heat stress"],"Fixed or interlocked guards keep hands and clothing away from dangerous moving parts."],
+["Before entering a confined space, the oxygen level in the air should generally be at least about",["19.5%","10%","15%","30%"],"Normal air has about 21% oxygen. Below about 19.5% the air is oxygen-deficient and unsafe without breathing apparatus."],
+["A safety audit in a factory is",["A systematic check of whether safety systems and rules are in place and working","An audit of the safety budget only","A medical check-up of workers","A fire drill"],"Audits find gaps in safety management so they can be fixed before an accident."]
 ];
 
 ADD.env = [
 ["The Eastern Zone bench of the National Green Tribunal (NGT) is located at", ["Kolkata","Bhubaneswar","Guwahati","Patna"], "NGT’s principal bench is in New Delhi; zonal benches are at Kolkata, Bhopal, Pune and Chennai."],
-["COP31, the UN Climate Change Conference of November 2026, was held in", ["Antalya, Türkiye","Belém, Brazil","Baku, Azerbaijan","Sydney, Australia"], "COP31 ran from 9 to 20 November 2026 in Antalya, with Australia presiding over the negotiations."],
+["COP31, the UN Climate Change Conference of November 2026, was held in", ["Antalya, Türkiye","Belém, Brazil","Baku, Azerbaijan","Sydney, Australia"], "COP31 was scheduled for 9–20 November 2026 in Antalya, with Australia presiding over the negotiations. The talks overran and closed on 22 November 2026 without agreeing a final cover decision."],
 ["COP30, the UN Climate Change Conference of 2025, was held in", ["Belém, Brazil","Antalya, Türkiye","Dubai, UAE","Glasgow, UK"], "COP28 Dubai (2023), COP29 Baku (2024), COP30 Belém (2025), COP31 Antalya (2026)."],
 ["The Paris Agreement on climate change was adopted at", ["COP21 in Paris, 2015","COP3 in Kyoto, 1997","COP26 in Glasgow, 2021","The Rio Earth Summit, 1992"], "It aims to keep warming well below 2°C and to pursue 1.5°C; each country sets its own NDC."],
 ["Under its updated NDC (2022), India aims to reduce the emissions intensity of its GDP by 2030 (from 2005 levels) by", ["45%","33%","50%","25%"], "India also committed to about 50% of installed power capacity from non-fossil sources by 2030."],
 ["India achieved its target of 50% of installed electricity capacity from non-fossil sources in", ["2025, five years ahead of the 2030 target","2030","2020","2018"], "India crossed the 50% mark in mid-2025; by July 2026 the share was over 54%."],
 ["India’s non-fossil installed electricity capacity crossed which milestone in July 2026?", ["300 GW","100 GW","500 GW","200 GW"], "300.5 GW as of 31 July 2026 — about 60% of the 500 GW target for 2030."],
 ["As per IRENA statistics of 2026, India’s global rank in installed renewable energy capacity is", ["Third","First","Fifth","Tenth"], "India moved past Brazil to third place, behind China and the USA."],
-["The largest share of India’s renewable energy capacity comes from", ["Solar power","Wind power","Biomass","Small hydro"], "Solar reached about 165 GW by mid-2026, the biggest part of India’s non-fossil capacity."],
+["The largest share of India’s renewable energy capacity comes from", ["Solar power","Wind power","Biomass","Small hydro"], "As of 31 October 2026, solar capacity was about 175 GW (PIB), the biggest part of India’s non-fossil capacity; wind was about 59 GW."],
 ["Mission LiFE, launched by India in 2022, stands for", ["Lifestyle for Environment","Life Insurance for Farmers","Low-emission Industrial Fuel Efficiency","Livelihood for Everyone"], "It promotes mindful use of resources by individuals and communities."],
 ["India’s Carbon Credit Trading Scheme (2023) was notified under the", ["Energy Conservation Act, 2001 (as amended in 2022)","Air Act, 1981","Forest Conservation Act, 1980","Electricity Act, 2003"], "The 2022 amendment allowed the government to set up a carbon market."],
 ["The Bureau of Energy Efficiency (BEE) was set up under the", ["Energy Conservation Act, 2001","Electricity Act, 2003","Environment (Protection) Act, 1986","Air Act, 1981"], "BEE began functioning in 2002 and runs the star-labelling, ECBC and PAT programmes."],
@@ -156,6 +172,14 @@ ADD.env = [
 ["The Green Credit Programme (2023) of India was notified under the", ["Environment (Protection) Act, 1986","Energy Conservation Act, 2001","Wildlife (Protection) Act, 1972","Biological Diversity Act, 2002"], "It rewards voluntary actions such as tree planting and water conservation with tradable green credits."],
 ["Which of these is an example of in-situ conservation?", ["A national park","A botanical garden","A seed bank","A zoo"], "In-situ conservation protects species in their natural habitats."],
 ["Excess heating of water bodies by hot water from power plants is called", ["Thermal pollution","Eutrophication","Biomagnification","Acid rain"], "Warm water holds less oxygen and harms fish."],
+["As of November 2026, how did COP31 in Antalya, Türkiye end?",["Without adopting a final cover decision, mainly over fossil-fuel language","With a new treaty replacing the Paris Agreement","With all countries agreeing to phase out coal by 2030","It was cancelled before it began"],"The talks overran by two days and closed on 22 November 2026. COP31 President Murat Kurum said there was no agreement, so the decisions were not adopted."],
+["The President of COP31 (Antalya, 2026) was",["Murat Kurum of Türkiye","Chris Bowen of Australia","André Corrêa do Lago of Brazil","Mukhtar Babayev of Azerbaijan"],"Türkiye’s environment minister Murat Kurum was COP President; Australia’s Chris Bowen was President of Negotiations. Corrêa do Lago led COP30 and Babayev led COP29."],
+["As of November 2026, the next UN climate conference, COP32 (2027), is due to be held in",["Addis Ababa, Ethiopia","Lagos, Nigeria","Nairobi, Kenya","Sharm el-Sheikh, Egypt"],"Ethiopia won the African Group’s backing for COP32. Sharm el-Sheikh hosted COP27 in 2022."],
+["As of 31 October 2026, India’s installed solar power capacity was about",["175 GW","100 GW","250 GW","60 GW"],"It was only about 2.8 GW in 2014 (PIB, November 2026)."],
+["As of October 2026, India’s installed wind power capacity was about",["59 GW","175 GW","20 GW","120 GW"],"PIB put wind at 59.20 GW on 29 October 2026, second to solar among renewables."],
+["The financial outlay of India’s National Green Hydrogen Mission (approved January 2023) is",["₹19,744 crore","₹1,974 crore","₹1.97 lakh crore","₹500 crore"],"Most of it, about ₹17,490 crore, is for the SIGHT incentive programme."],
+["SIGHT, the main incentive programme under India’s National Green Hydrogen Mission, stands for",["Strategic Interventions for Green Hydrogen Transition","Solar Industry Growth and Hydrogen Technology","Scheme for Industrial Green Hydrogen Targets","Sustainable Initiative for Green Hydrogen Trade"],"It supports domestic electrolyser manufacturing and green hydrogen production."],
+["India’s first indigenous hydrogen-powered train runs on the section",["Jind–Sonipat (Haryana)","Kalka–Shimla","New Jalpaiguri–Darjeeling","Delhi–Agra"],"As of November 2026 reports, it was inaugurated in July 2026 on the Jind–Sonipat route; the only exhaust from a hydrogen fuel cell is water."]
 ];
 
 ADD.sci = [
@@ -210,7 +234,14 @@ ADD.sci = [
 ["Rust is chemically", ["Hydrated iron(III) oxide","Iron sulphide","Iron carbonate","Iron chloride"], "Formula Fe₂O₃·xH₂O."],
 ["Camphor and naphthalene balls change directly from solid to vapour. This is called", ["Sublimation","Evaporation","Condensation","Melting"], "Dry ice, iodine and ammonium chloride also sublime."],
 ["Avogadro’s number is about", ["6.022 × 10²³","3 × 10⁸","1.6 × 10⁻¹⁹","9.8"], "It is the number of particles in one mole."],
-["Atoms with the same mass number but different atomic numbers are called", ["Isobars","Isotopes","Isotones","Isomers"], "Example: argon-40 and calcium-40."]
+["Atoms with the same mass number but different atomic numbers are called", ["Isobars","Isotopes","Isotones","Isomers"], "Example: argon-40 and calcium-40."],
+["Three resistors of 2 Ω, 3 Ω and 6 Ω are connected in parallel. The equivalent resistance is",["1 Ω","11 Ω","2 Ω","0.5 Ω"],"1/R = 1/2 + 1/3 + 1/6 = 1, so R = 1 Ω. In series it would be 11 Ω."],
+["A stone is dropped from rest. Taking g = 10 m/s², its speed after 3 seconds is",["30 m/s","10 m/s","45 m/s","3 m/s"],"v = u + gt = 0 + 10 × 3 = 30 m/s. (It falls ½gt² = 45 m in that time.)"],
+["The work done in lifting a 10 kg box through a height of 2 m (g = 10 m/s²) is",["200 J","20 J","100 J","2,000 J"],"Work = mgh = 10 × 10 × 2 = 200 J."],
+["The focal length of a concave mirror with radius of curvature 20 cm is",["10 cm","20 cm","40 cm","5 cm"],"For a spherical mirror, f = R/2."],
+["A lens has a power of +2 dioptres. It is a",["Convex lens of focal length 50 cm","Concave lens of focal length 50 cm","Convex lens of focal length 2 m","Concave lens of focal length 2 cm"],"f = 1/P = 1/2 m = 50 cm. Positive power means a converging (convex) lens."],
+["The gas given off when zinc reacts with dilute sulphuric acid is",["Hydrogen","Oxygen","Sulphur dioxide","Carbon dioxide"],"Zn + H₂SO₄ → ZnSO₄ + H₂. The gas burns with a ‘pop’ sound."],
+["TV remote controls usually send signals using",["Infrared rays","Ultraviolet rays","X-rays","Gamma rays"],"Infrared lies just beyond red light; it is invisible and harmless at these levels."]
 ];
 
 ADD.comp = [
@@ -259,7 +290,13 @@ ADD.comp = [
 ["Malicious software that secretly records the keys you press is called a", ["Keylogger","Firewall","Compiler","Cookie"], "Keyloggers steal passwords; use virtual keyboards and antivirus."],
 ["Converting data into a coded form that only authorised people can read is called", ["Encryption","Compression","Formatting","Defragmentation"], "Decryption turns it back into readable form."],
 ["DigiLocker is a Government of India platform for", ["Storing and sharing digital documents such as certificates","Online gaming","Mobile recharge","Booking trains"], "Documents in DigiLocker are legally valid."],
-["Aadhaar numbers are issued by", ["UIDAI","NPCI","RBI","NIC"], "Unique Identification Authority of India, set up in 2009."]
+["Aadhaar numbers are issued by", ["UIDAI","NPCI","RBI","NIC"], "Unique Identification Authority of India, set up in 2009."],
+["In MS Excel, =MAX(4, 9, 2, 7) returns",["9","2","22","4"],"MAX gives the largest value; MIN would give 2 and SUM 22."],
+["In MS Word, the shortcut Ctrl + E is used to",["Centre-align text","Open a file","Close the document","Insert a table"],"Ctrl + L = left align, Ctrl + R = right align, Ctrl + J = justify."],
+["Which shortcut opens Task Manager directly in Windows?",["Ctrl + Shift + Esc","Ctrl + Alt + Tab","Alt + F4","Windows + D"],"Alt + F4 closes the active window; Windows + D shows the desktop."],
+["The octal equivalent of binary 101110 is",["56","46","65","27"],"Group the bits in threes from the right: 101 = 5, 110 = 6, giving 56."],
+["Which protocol lets you read email kept on the mail server, synced across several devices?",["IMAP","SMTP","FTP","HTTP"],"IMAP keeps mail on the server; POP3 usually downloads it; SMTP is used to send mail."],
+["‘Smishing’ refers to",["Phishing carried out through SMS text messages","Phishing through voice calls","Hacking a smart TV","Sending bulk advertising email"],"Smishing = SMS + phishing. Phone-call scams are called vishing."]
 ];
 
 ADD.wb = [
@@ -313,7 +350,20 @@ ADD.wb = [
 ["Dhaniakhali handloom sarees come from the district of", ["Hooghly","Bankura","Nadia","Murshidabad"], "They are cotton sarees with a GI tag."],
 ["Madur (mat) weaving is famous in", ["Paschim Medinipur (Sabang)","Darjeeling","Malda","Cooch Behar"], "Madur kathi mats are woven from a reed and have a GI tag."],
 ["Gobindobhog rice, which has a GI tag, is mainly grown in", ["Purba Bardhaman","Darjeeling","Purulia","Kalimpong"], "Bardhaman’s Sitabhog and Mihidana sweets also have GI tags."],
-["The All India Institute of Medical Sciences (AIIMS) in West Bengal is at", ["Kalyani","Siliguri","Durgapur","Haldia"], "AIIMS Kalyani is in Nadia district."]
+["The All India Institute of Medical Sciences (AIIMS) in West Bengal is at", ["Kalyani","Siliguri","Durgapur","Haldia"], "AIIMS Kalyani is in Nadia district."],
+["The Industrial Development Officer post advertised by WBPSC (Advt. No. 15/2024, applications November 2026) belongs to the Directorate of",["Micro, Small & Medium Enterprises, under the MSME & Textiles Department","Factories, under the Labour Department","Commerce and Taxes, under the Finance Department","Industrial Reconstruction"],"The advertisement covers 247 IDO posts in the Directorate of MSME, Government of West Bengal (as of November 2026)."],
+["Under the West Bengal Investment Promotion Policy 2026, a strategic or mega project can get tailor-made incentives if it meets at least two of three criteria. Which is one of them?",["Creating at least 50 jobs per acre","Being located inside Kolkata","Exporting all of its output","Being owned by a central PSU"],"The three criteria are the size of investment, being in a strategic sector, and at least 50 jobs per acre of land."],
+["Under the West Bengal Investment Promotion Policy 2026, the single window is to issue a Certificate of Intent within",["30 days of application","7 days of application","90 days of application","One year of application"],"The Certificate of Eligibility is due within 45 days of the start of commercial production."],
+["The incentives under the West Bengal Investment Promotion Policy 2026 are paid from a dedicated, non-lapsable fund called the",["Assured Incentive Fund","Bengal Growth Fund","Silpasathi Fund","MSME Corpus Fund"],"The 2026-27 state Budget put ₹5,000 crore towards it for the year (as of November 2026)."],
+["Under the West Bengal Investment Promotion Policy 2026, ‘Priority Areas’ that get higher assistance are",["Less-industrialised sub-divisions of the state, reviewed every three years","Kolkata and Howrah only","Special Economic Zones only","Areas within 5 km of a port"],"Thrust-sector units in Priority Areas can get assistance of up to 120% of eligible fixed capital investment."],
+["As of November 2026, Shyam Steel’s announced expansion in West Bengal includes a 2-million-tonne-a-year integrated steel plant at",["Mejia, Bankura","Haldia, Purba Medinipur","Kalyani, Nadia","Siliguri, Darjeeling"],"It is part of about ₹15,000 crore of proposed investment; the foundation stone was laid in July 2026."],
+["As of November 2026, which business group’s investment roadmap for West Bengal, worth over ₹1 lakh crore (ports, logistics, power, data centres), was reported as the largest?",["Adani Group","Vedanta","JSW Group","Jai Balaji Group"],"Five groups — Adani, Vedanta, JSW, Shyam Steel and Jai Balaji — together proposed about ₹2.4 lakh crore after May 2026. These are proposals, not completed investment."],
+["As of November 2026, JSW Group’s proposed investment in West Bengal includes further development of its project at",["Salboni","Sagardighi","Bakreswar","Kolaghat"],"Salboni is in Paschim Medinipur. Sagardighi, Bakreswar and Kolaghat are WBPDCL plants."],
+["The ₹25,000 crore Tajpur deep-sea port project in Purba Medinipur was first awarded in 2022 to",["Adani Ports & SEZ","JSW Infrastructure","DP World","Larsen & Toubro"],"Construction never began, and the state decided to re-tender the project."],
+["‘Bengal Silicon Valley’, the IT and data-centre hub of West Bengal, is located in",["New Town, Kolkata","Siliguri","Durgapur","Haldia"],"Several large data centres are built or planned there; Webel also runs a state data centre at Purulia."],
+["As of November 2026, West Bengal’s Minister of State for Industry, Commerce & Enterprises is",["Moumita Biswas Mishra","Ashok Dinda","Gargi Das Ghosh","Dibakar Gharami"],"Tapas Roy is the cabinet minister for the department. Ashok Dinda is MoS for MSME & Textiles; Gargi Das Ghosh is MoS for Power."],
+["As of November 2026, West Bengal’s cabinet minister for Environment and Forests is",["Manoj Kumar Oraon","Arjun Singh","Tapas Roy","Swapan Dasgupta"],"Portfolios were allocated on 10 June 2026; Dibakar Gharami is the Minister of State."],
+["As of November 2026, West Bengal’s cabinet minister for Labour is",["Arjun Singh","Manoj Kumar Oraon","Dipak Barman","Kalyan Chakraborty"],"He also holds Transport. Kalyan Chakraborty holds IT & Electronics."]
 ];
 
 ADD.math = [
@@ -358,7 +408,17 @@ ADD.math = [
 ["Five friends sit in a row facing north. C is in the middle. A is immediately to the left of C. B is at the right end. E is immediately to the right of C. Where is D?", ["At the left end","Between A and C","At the right end","Between E and B"], "Order from left: D, A, C, E, B."],
 ["A triangle has one straight line drawn from a vertex to the opposite side. How many triangles are there in the figure?", ["3","2","4","1"], "Two small triangles plus the whole triangle."],
 ["How many squares are there in a 2 × 2 grid of squares?", ["5","4","6","8"], "Four small squares plus one large square."],
-["The manager said, “Don’t count your chickens before they hatch.” What does he mean?", ["Don’t rely on a result before it actually happens","Count your chickens carefully","Poultry farming is risky","Wait for eggs to hatch before selling"], "The proverb warns against making plans based on an expected result that has not happened yet."]
+["The manager said, “Don’t count your chickens before they hatch.” What does he mean?", ["Don’t rely on a result before it actually happens","Count your chickens carefully","Poultry farming is risky","Wait for eggs to hatch before selling"], "The proverb warns against making plans based on an expected result that has not happened yet."],
+["Statements: No machine is a toy. All toys are gifts.\nConclusions: I. Some gifts are not machines. II. No gift is a machine.",["Only I follows","Only II follows","Both follow","Neither follows"],"The gifts that are toys cannot be machines, so I follows. Other gifts may be machines, so II does not follow."],
+["P is the brother of Q. Q is the daughter of R. S is R’s father. How is P related to S?",["Grandson","Son","Nephew","Brother"],"P and Q are R’s children, so P is the son of S’s child: S’s grandson."],
+["A man walks 6 km east and then 8 km north. How far is he from his starting point?",["10 km","14 km","2 km","12 km"],"The two paths form a right angle: √(6² + 8²) = √100 = 10 km."],
+["If MANGO is written as OCPIQ in a code, how is APPLE written?",["CRRNG","BQQMF","CRRMG","DSSOH"],"Each letter moves two steps forward: A→C, P→R, P→R, L→N, E→G."],
+["If 15 August 2026 was a Saturday, what day was 15 September 2026?",["Tuesday","Monday","Wednesday","Saturday"],"August has 31 days = 4 weeks + 3 days, so the day moves 3 forward: Saturday → Tuesday."],
+["What is the angle between the hour and minute hands of a clock at 4:20?",["10°","0°","20°","30°"],"Angle = |30 × 4 − 5.5 × 20| = |120 − 110| = 10°."],
+["In a queue, A is 10th from the front and B is 15th from the back. There are 4 people between them and A is ahead of B. How many people are in the queue?",["29","28","30","25"],"10 (up to A) + 4 (between) + 15 (B to the back) = 29."],
+["Find the odd one out: 27, 64, 125, 144",["144","27","64","125"],"27, 64 and 125 are cubes (3³, 4³, 5³); 144 is a square (12²), not a cube."],
+["Pen : Writer :: Scalpel : ?",["Surgeon","Painter","Carpenter","Tailor"],"A writer works with a pen; a surgeon works with a scalpel."],
+["Statement: Many small units in an industrial cluster say they cannot afford their own effluent treatment plants.\nCourses of action: I. The government should help set up a common effluent treatment plant for the cluster. II. All the units should be shut down at once.",["Only I follows","Only II follows","Both follow","Neither follows"],"I solves the problem in a practical way. II is an extreme step that destroys jobs instead of fixing the pollution."]
 ];
 
 for (const k in ADD) {
